@@ -10,6 +10,7 @@ public class MyDemoLoggingAspect {
 
     // this we will add all related advices for logging
 
+    // execution is pointcut expression
     @Before("execution(public void addAccount())") //aspect type
     public void beforeAddAccountAdvice() {
 
