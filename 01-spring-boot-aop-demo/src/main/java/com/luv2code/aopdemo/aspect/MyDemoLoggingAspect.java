@@ -11,9 +11,7 @@ public class MyDemoLoggingAspect {
     // this we will add all related advices for logging
 
     // execution is pointcut expression
-    //@Before("execution(public void add*())") //aspect type
-
-    @Before("execution(* add*())") //aspect type
+    @Before("execution(* add*(com.luv2code.aopdemo.Account))") //aspect type
     public void beforeAddAccountAdvice() {
         System.out.println("\n=======>>>>> Executing @Before advice on addSillyMember()");
     }
