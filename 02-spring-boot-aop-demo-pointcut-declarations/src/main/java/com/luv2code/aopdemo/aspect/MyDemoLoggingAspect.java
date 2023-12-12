@@ -9,14 +9,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyDemoLoggingAspect {
 
-    // this we will add all related advices for logging
-
     @Pointcut("execution(* com.luv2code.aopdemo.dao.*.*(..))")
     private void forDaoPackage() {}
 
-    // execution is pointcut expression
+
     @Before("forDaoPackage()") //aspect type
     public void beforeAddAccountAdvice() {
         System.out.println("\n=======>>>>> Executing @Before advice on addSillyMember()");
+    }
+
+    @Before("forDaoPackage()")
+    public void performApiAnalytics() {
+        System.out.println("\n=======>>>>> Performing API Analytics");
     }
 }
