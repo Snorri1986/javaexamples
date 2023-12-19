@@ -1,5 +1,6 @@
 package com.luv2code.aopdemo.aspect;
 
+import com.luv2code.aopdemo.Account;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -18,5 +19,17 @@ public class MyDemoLoggingAspect {
 
         MethodSignature methodSignature = (MethodSignature)theJoinPoint.getSignature();
         System.out.println("Method " + methodSignature);
+
+        Object[] args = theJoinPoint.getArgs();
+
+        for(Object tempArg : args) {
+            System.out.println("Argument " + tempArg + "\n");
+
+            if(tempArg instanceof Account) {
+                Account theAccount = (Account) tempArg;
+                System.out.println("Account name " + theAccount.getName());
+                System.out.println("Account name " + theAccount.getLevel());
+            }
+        }
     }
 }
